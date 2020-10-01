@@ -7,6 +7,12 @@ var infoBox         = document.getElementById('infoBox');
 var btnSwitch       = document.getElementsByClassName('btnSwitch')[0];
 var btnInfo         = document.getElementsByClassName('btnInfo')[0];
 
+var numbers         = [0,1,2,3,4,5,6,7,8,9];
+var padding         = ['','','','','','']; // 6 * ''
+var keyValuesInit   = numbers.concat(padding);
+var keyValues       = [...keyValuesInit]; // copy (spread operator)
+var PASSWD_MAX_LEN  = 6; // constante
+
 function init() {
     txtCodecli.addEventListener('keyup', checkConditions)
     btnValid.addEventListener('click', initVirtualKb)
@@ -28,7 +34,10 @@ function checkConditions(e) {
 }
 
 function initVirtualKb() {
-    virtualKb.appendChild(buildVirtualKb());
+    if (virtualKb.children.length === 0) {
+        virtualKb.appendChild(buildVirtualKb());
+        buildPasswdBoxes();
+    }
 }
 
 function buildVirtualKb() {
@@ -51,9 +60,35 @@ function buildVirtualKb() {
 
 function buildKey() {
     var key = document.createElement('div');
-    key.innerText = "6";
+    key.innerText = pickValue();
     key.classList.add('key');
+
+    if (key.innerText !== '') {
+        key.addEventListener('click', (e) => {
+            console.log(e.target.innerText)
+        })
+    }
+
     return key;
+}
+
+function pickValue() {
+    var max = keyValues.length;
+    return keyValues.splice(randomIndex(max), 1)[0];
+}
+
+function randomIndex(max) {
+    // renvoie une valeur comprise entre 0 et max
+    return Math.floor(Math.random() * max);
+}
+
+function buildPasswdBoxes() {
+    for (var i = 0; i < PASSWD_MAX_LEN; i++) {
+        var box = document.createElement('div');
+        box.classList.add('box');
+        box.innerText = '_';
+        passwdBox.appendChild(box);
+    }
 }
 
 
