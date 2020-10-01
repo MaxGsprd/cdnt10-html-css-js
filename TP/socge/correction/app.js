@@ -12,10 +12,15 @@ var padding         = ['','','','','','']; // 6 * ''
 var keyValuesInit   = numbers.concat(padding);
 var keyValues       = [...keyValuesInit]; // copy (spread operator)
 var PASSWD_MAX_LEN  = 6; // constante
+var boxIndex        = 0;
 
 function init() {
     txtCodecli.addEventListener('keyup', checkConditions)
     btnValid.addEventListener('click', initVirtualKb)
+    btnSwitch.addEventListener('click', triggerSwitch)
+    btnInfo.addEventListener('click', () => {
+        infoBox.classList.toggle('hide')
+    })
 }
 
 function checkConditions(e) {
@@ -29,6 +34,8 @@ function checkConditions(e) {
         e.target.style.borderBottomColor = 'green';
     } else {
         e.target.style.borderBottomColor = 'red';
+        resetVirtualKb();
+        resetPasswd();
     }
     
 }
@@ -61,12 +68,10 @@ function buildVirtualKb() {
 function buildKey() {
     var key = document.createElement('div');
     key.innerText = pickValue();
-    key.classList.add('key');
+    key.classList.add('key')
 
     if (key.innerText !== '') {
-        key.addEventListener('click', (e) => {
-            console.log(e.target.innerText)
-        })
+        key.addEventListener('click', selectKey)
     }
 
     return key;
@@ -91,6 +96,40 @@ function buildPasswdBoxes() {
     }
 }
 
+function selectKey(e) {
+    if (boxIndex < PASSWD_MAX_LEN) {
+        passwdBox.children[boxIndex].innerText = '*';
+        boxIndex++;
+    }
+
+    if (boxIndex === PASSWD_MAX_LEN &&
+        passwdBox.children.length === PASSWD_MAX_LEN) {
+        var reset = document.createElement('div');
+        reset.classList.add('box', 'close', 'pointer');
+        reset.innerText = 'x';
+        reset.addEventListener('click', () => {
+            resetPasswd();
+            buildPasswdBoxes();
+        })
+        passwdBox.appendChild(reset);
+    }
+}
+
+function resetVirtualKb() {
+    virtualKb.innerHTML = '';
+    keyValues = [...keyValuesInit];
+}
+
+function resetPasswd() {
+    passwdBox.innerHTML = '';
+    boxIndex = 0;
+}
+
+function triggerSwitch(e) {
+    var list = e.target.classList;
+    e.target.innerText = list.contains('yes') ? 'non' : 'oui';
+    e.target.classList.toggle('yes');
+}
 
 
 init();

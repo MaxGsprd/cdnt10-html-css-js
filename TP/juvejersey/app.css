@@ -1,0 +1,46 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10pt;
+}
+
+h2 {
+    font-size: 1.1rem;
+}
+
+
+#photoArea img {
+    width: 500px
+}
+
+#photoArea #thumbs img {
+    width: 75px
+}
+
+#photoArea, #settingsArea {
+    float: left;
+    padding: 4px
+}
+
+#badges img {
+    width: 60px
+}
+
+#badgesSelector input {
+    margin: 0 24px
+}
+section {
+    margin: 40px 0
+}
+
+.flock {
+    padding: 8px;
+    border: 1px #aaa solid;
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+
+.flock.selected {
+    color: #ff2850;
+    border-color: #ff2850;
+}

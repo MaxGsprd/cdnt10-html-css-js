@@ -1,0 +1,16 @@
+*** TP juvejersey ***
+
+Apportez les fonctionnalités suivantes à l'application:
+
+- flocker le maillot (de dos, image 3)
+Le clic sur le bouton "Individual" affiche des case permettant
+de saisir un numéro et un nom devant apparaître sur le maillot.
+
+- déterminer un total incluant le prix:
+    du maillot (prix unitaire: 120 EUR)
+    de la quantité choisie
+    du flocage (10EUR)
+    des badges choisis (10 EUR par badge)
+
+- en option, le clic sur une photo miniature affiche cette 
+même photo en grande version dans la zone principale
