@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Socge</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <h1>TP Socge</h1>
+    <input id="txtCodecli" type="text"
+        placeholder="Saisissez votre code client">
+    
+    <div id="record">
+        <button class="btnSwitch">non</button>
+        <span>Se souvenir de moi</span>
+        <span class="btnInfo">i</span>
+        <div id="infoBox" class="hide">
+            <p>Se souvenir de moi</p>
+            <p>En cochant cette case, votre code client sera mémorisé sur cet appareil.</p>
+            <p>De cette manière vous n'aurez plus à le saisir lors de vos prochaines connexions.</p>
+            <p>Ceci est déconseillé si votre ordinateur est utilisé par d'autres personnes.</p>
+        </div>
+    </div>
+    
+    <div id="passwdBox"></div>
+    <div class="clearfix"></div>
+    <div id="virtualKb"></div>
+    <div class="clearfix"></div>
+    <button id="btnValid" disabled class="btn">Valider</button>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
