@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+</head>
+<body>
+    <h1>Ajax</h1>
+    <button id="btnTest">Test</button>
+    <section></section>
+    
+    <script>
+        var btnTest = document.getElementById('btnTest');
+        var section = btnTest.nextElementSibling;
+
+        btnTest.addEventListener('click', getTeams);
+
+        function getPoem() {
+            var url = 'poem.txt';
+            fetch(url).then(res => res.text())
+                .then(poem => section.innerHTML += '<p>' + poem + '</p>')
+        }
+
+        function getTeams() {
+            var url = 'teams.json';
+            fetch(url).then(res => res.json())
+                .then(teams => { 
+                    teams.forEach(team => {
+                        section.innerHTML += 
+                            //'<p>' + team.name + ' ('+ team.yearFounded +')</p>'
+                     `<p>${team.name} => (${team.yearFounded})</p>`
+                    })
+                })
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantiniere Test</title>
+</head>
+<body>
+    <h1>Cantiniere Test</h1>
+    <button id="btnUsers">Users</button>
+    <button id="btnLogin">Login</button>
+    <div></div>
+
+    <script>
+        var btnUsers = document.getElementById('btnUsers');
+        var btnLogin = document.getElementById('btnLogin');
+        var btnLogin = document.getElementById('btnLogin');
+        var log      = btnLogin.nextElementSibling;
+
+        var API = 'http://192.168.0.25:8080/lunchtime';
+
+        var token = '';
+
+        function getUsers() {
+            var options = {
+                headers: { "Authorization": token }
+            };
+            fetch(API + '/user/findall', options)
+                .then(res => {
+                    if (res.status === 401) {
+                        log.innerText = "Il faut se logguer d'abord"
+                    }
+                    if (res.status === 200) {
+                        return res.json();
+                    }
+                })
+                .then(users => {
+                    log.innerText = users.length + ' users found in database';
+                })
+        }
+
+        function login() {
+            var credentials = {
+                email: 'toto@gmail.com',
+                password: 'bonjour'
+            };
+            var options = {
+                method: 'POST',
+                body: JSON.stringify(credentials)
+            };
+            fetch(API + '/login', options)
+                .then(res => {
+                    token = res.headers.get('Authorization');
+                    if (token) {
+                        log.innerText = "Login successful (token received)"
+                    } else {
+                        log.innerText = "Login failed"
+                    }
+                })
+        }
+
+        btnUsers.addEventListener('click', getUsers);
+        btnLogin.addEventListener('click', login);
+
+    </script>
+</body>
+</html>
