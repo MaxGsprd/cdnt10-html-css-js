@@ -53,3 +53,33 @@ body {
 .clearfix {
     clear: both
 }
+
+.mainImg {
+    height: 100px
+}
+
+.box {
+    background-color: #aaa;
+    border: 1px #000 solid;
+    text-align: center;
+    padding: 4px;
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.gallery {
+    display: flex;
+    background-color: transparent !important;
+    height: 100% !important;
+}
+
+.gallery section {
+    flex-direction: column;
+    width: 33%;
+    margin: 1px
+}
+
+.gallery .galleryImg {
+    height: 100px
+}

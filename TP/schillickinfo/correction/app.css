@@ -1,0 +1,95 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#main {
+    display: flex;
+    width: 960px
+}
+
+#main h2 {
+    text-align: center;
+}
+
+#left {
+    flex:1;
+    background-color: #eee;
+    padding: 3rem 1rem 0
+}
+
+#centre {
+    flex:2;
+}
+
+#centre section {
+    padding: 3rem 1rem 0;
+    background-color: #FD942C;
+    color: white;
+}
+
+#centre footer section {
+    display: flex;
+    background-color: white;
+}
+
+#right {
+    flex:1;
+    background-color: #eee;
+    padding: 2.4rem 1rem 0
+}
+
+.imagePlaceholder {
+    width: 100%;
+    background-image: url('http://lorempixel.com/400/300');
+    height: 300px;
+    margin-bottom: 1rem;
+}
+
+.poster {
+    width: 75%;
+    background-image: url('http://lorempixel.com/200/200');
+    height: 200px;
+    box-shadow: 10px 10px 12px #aaa;
+    margin: 1rem .3rem;
+    border-top-right-radius: 20px;
+}
+
+.strong { font-weight: bold; }
+
+.em { 
+    font-style: italic;
+    font-size: .9rem;
+    color: #333
+}
+
+.subtitle {
+    background-color: #FD942C;
+    color: white;
+    font-weight: bold;
+}
+
+#right .subtitle {
+    position: relative;
+    left: -16px;
+}
+
+.headline {
+    text-transform: uppercase;
+}
+
+.date:after {
+    content: '\A';
+    white-space: pre;
+}
+
+h2.border {
+    background-color: white;
+    color: #333;
+    margin-bottom: 0;
+    border-top: 5px #FD942C solid;
+    padding-top: 1.2rem
+}
+
+#centre footer section {
+    padding-top: 1rem !important;
+}
