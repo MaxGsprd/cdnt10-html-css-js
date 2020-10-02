@@ -1,0 +1,12 @@
+*** TP Cantiusers ***
+
+Créer une application front affichant la liste (champs name, firstname, wallet) 
+des utisateurs depuis l'api lunchtime
+
+Fonctionnalités attendues:
+- filtrage des utilisateurs par recherche dans le champ name (pas de sensiblité à la casse)
+A partir de 3 caractères saisis le DOM sera mis à jour afin de n'afficher que 
+les utilisateurs dont le nom contient cette suite de 3 caractères
+
+- mise à jour du champ wallet (augmentation ou diminution du montant) par requête ajax
+Afficher un message dans l'interface afin d'informer l'utilisateur de l'issue de sa requête
